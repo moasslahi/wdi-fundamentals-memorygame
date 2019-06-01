@@ -40,8 +40,8 @@ function checkForMatch() {
 }
 
 
-function flipCard (cardId) {
-
+function flipCard() {
+cardId = this.getAttribute("data-id");
 console.log("user fliphped" + " " + cards[cardId].rank);
 console.log(cards[cardId].cardImage);
 console.log(cards[cardId].suit);
@@ -53,7 +53,40 @@ cardsInPlay.length === 2;
 
 }
 
-flipCard(0);
-flipCard(2);
-// console.log(cards.cardImage);
-// console.log(cards.suit);
+function createBoard() {
+	for (var i = 0; i <cards.length; i++) {
+var cardElement = document.createElement('img');
+cardElement.textContent = "queen-of-diamonds";
+cardElement.textContent = "queen-of-hearts";
+cardElement.textContent = "king-of-diamonds";
+cardElement.textContent = "king-of-hearts";
+
+cardElement.setAttribute('src', '"images/back.png"');
+cardElement.setAttribute('data-id', i);
+
+cardElement.addEventListener('click', flipCard);
+document.getElementByIdName('#game-board').appendChild(cardElement);
+
+}
+
+}
+
+createBoard();
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
